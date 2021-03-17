@@ -30,7 +30,6 @@ class TwistedServerApp(App):
     label = None
     label2 = None
     users = {
-        "steffen":"123",
         "horst":"123",
         "chris":"123",
         "frieda":"123"

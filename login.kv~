@@ -79,5 +79,5 @@
             text: 'Beenden'
 			background_color: (0, 0, 0.5, 1.0)
             font_size: 29
-            on_press: root.applyQuit()
+            on_press: root.applyQuit(0)
             

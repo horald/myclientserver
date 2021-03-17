@@ -11,6 +11,6 @@ class Connected(Screen):
         self.manager.get_screen('login').removeUser()
         
     def SetAnzUser(self):
-        stranzuser="Anzahl User:"+self.manager.get_screen('login').getAnzUser()        
-#        stranzuser="Anzahl User:"        
+#        stranzuser="Anzahl User:"+self.manager.get_screen('login').getAnzUser()        
+        stranzuser="Anzahl User:"        
         return stranzuser 
