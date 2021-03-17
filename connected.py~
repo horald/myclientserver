@@ -9,9 +9,11 @@ class Connected(Screen):
         # löst eine ScreenManagerException aus, wenn es nicht gefunden wurde.
         # Über das Screen-Widget-Objekt kann eine Methode des Objekts aufgerufen werden
         self.manager.get_screen('login').removeUser()
+
+    def SendMsg(self):
+        print(self.ids['nachricht'].text)
+        self.manager.get_screen('login').SendMsg()
         
     def SetAnzUser(self, anzuser):
         stranzuser="Anzahl User:"+format(anzuser)
         self.ids['anzuser'].text=stranzuser        
-#        stranzuser="Anzahl User:"        
-#        return stranzuser 

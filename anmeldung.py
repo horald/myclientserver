@@ -25,6 +25,9 @@ class MyClientProtocol(protocol.Protocol):
             print("*** anzuser ***")
             print(anzuser)
             self.factory.app.loginValid(anzuser)
+        elif serverMSG[:4] == 'Msg:':
+            strnachricht=serverMSG[4:]            
+            self.factory.app.ShowMsg(strnachricht)
         else:
             self.factory.app.print_message('Server MSG:> ' + serverMSG)
 
@@ -51,6 +54,11 @@ class MyClientFactory(protocol.ClientFactory):
 class Login(Screen):
     connection = None
     currUser = ""
+
+    def SendMsg(self, msg):
+        msg = msg + ":Message"
+        self.connection.write(msg.encode('utf-8'))
+
 
     def removeUser(self):
         print("disconnect User")
@@ -80,6 +88,9 @@ class Login(Screen):
         msg = "Client beendet das Programm."
         self.print_message(msg)
         sys.exit()
+
+    def ShowMsg(self, msg):
+        self.manager.get_screen('connected').SetAnzUser(msg)
 
     def loginValid(self, anzuser):        
         self.resetForm()

@@ -71,6 +71,10 @@ class TwistedServerApp(App):
         self.label.text = "Empfangen:  {}\n".format(cMsg)
         userName = msgArray[0]
         clientCmd = msgArray[1]
+        if clientCmd == "Message":
+            res = "Msg:"+userName
+            self.my_output.text += format(userName)
+            return res.encode('utf-8')
         if clientCmd == "Delete":
             self.delUser(userName)
             res = "Benutzer {} ist vom Server abgemeldet.".format(userName)

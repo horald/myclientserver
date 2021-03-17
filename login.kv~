@@ -38,9 +38,11 @@
 
             TextInput:
                 id: login
+                focus: True
 				background_color: 1, 1, 1, 0.8
 				cursor_color: 0, 0, 0, 1
 				color: 0, 0, 0, 1
+				write_tab:False
                 multiline:False
 				hint_text: 'Benutzername'
                 font_size: 18
@@ -58,6 +60,7 @@
 				background_color: 1, 1, 1, 0.8
 				cursor_color: 0, 0, 0, 1
 				color: 0, 0, 0, 1
+				write_tab:False
                 multiline:False
                 password:True
 				hint_text: 'Ihr Passwort'
@@ -79,5 +82,5 @@
             text: 'Beenden'
 			background_color: (0, 0, 0.5, 1.0)
             font_size: 29
-            on_press: root.applyQuit(0)
+            on_press: root.applyQuit()
             
