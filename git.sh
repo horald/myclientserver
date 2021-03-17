@@ -11,7 +11,7 @@ if [ "$1" != "" ]; then
       fi  
       echo "======================"
       echo "Hochladen mit:"
-      echo "git push origin master"
+      echo "git push origin main"
       echo "======================"
       ;;
   esac
