@@ -51,10 +51,6 @@ class MyClientFactory(protocol.ClientFactory):
 class Login(Screen):
     connection = None
     currUser = ""
-    currAnzUser = 0
-
-    def getAnzUser(self):
-        return str(self.currAnzUser)
 
     def removeUser(self):
         print("disconnect User")
@@ -78,7 +74,7 @@ class Login(Screen):
             if self.connection == None:
                 self.connect_to_server()
                 
-            self.send_message(loginField, passwordField)
+#            self.send_message(loginField, passwordField)
 
     def applyQuit(self):
         msg = "Client beendet das Programm."
@@ -89,7 +85,7 @@ class Login(Screen):
         self.resetForm()
         self.manager.transition = SlideTransition(direction="left")
         self.manager.current = 'connected'
-        self.currAnzUser = anzuser
+        self.manager.get_screen('connected').SetAnzUser(anzuser)
         
     def loginFailed(self):        
         self.resetForm()
@@ -124,6 +120,8 @@ class Login(Screen):
 
     def on_connection(self, connection):
         self.connection = connection
+        self.send_message(loginField, passwordField)
+        
         
 
 # A simple kivy App,
