@@ -10,7 +10,8 @@ class Connected(Screen):
         # Über das Screen-Widget-Objekt kann eine Methode des Objekts aufgerufen werden
         self.manager.get_screen('login').removeUser()
         
-    def SetAnzUser(self):
-#        stranzuser="Anzahl User:"+self.manager.get_screen('login').getAnzUser()        
-        stranzuser="Anzahl User:"        
-        return stranzuser 
+    def SetAnzUser(self, anzuser):
+        stranzuser="Anzahl User:"+format(anzuser)
+        self.ids['anzuser'].text=stranzuser        
+#        stranzuser="Anzahl User:"        
+#        return stranzuser 

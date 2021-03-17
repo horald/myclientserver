@@ -51,10 +51,6 @@ class MyClientFactory(protocol.ClientFactory):
 class Login(Screen):
     connection = None
     currUser = ""
-    currAnzUser = 0
-
-    def getAnzUser(self):
-        return str(self.currAnzUser)
 
     def removeUser(self):
         print("disconnect User")
@@ -89,7 +85,7 @@ class Login(Screen):
         self.resetForm()
         self.manager.transition = SlideTransition(direction="left")
         self.manager.current = 'connected'
-        self.currAnzUser = anzuser
+        self.manager.get_screen('connected').SetAnzUser(anzuser)
         
     def loginFailed(self):        
         self.resetForm()

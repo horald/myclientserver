@@ -8,7 +8,8 @@
 
         Label:
             id: anzuser
-            text: Login.lb_anzuser
+#            text: root.SetAnzUser()
+            text: "(Anz User)"
             font_size: 12
 
         Button:
